@@ -1,0 +1,19 @@
+# API USER MANAGEMENT
+
+GET {{host-url}}/user/all
+
+###
+
+POST {{host-url}}/user/registration
+Content-Type: application/json
+
+{
+  "firstName": "Cem",
+  "lastName": "Caylak",
+  "birthDate": "1999-01-17",
+  "postCode": "45711",
+  "place" : "Datteln",
+  "address": "Castroper Straße 102"
+}
+
+###
