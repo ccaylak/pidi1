@@ -27,8 +27,8 @@ public class User {
     private String place;
     private String address;
 
-    public User(String firstname, String lastName, LocalDate birthDate, String postCode, String place, String address) {
-        this.firstName = firstname;
+    public User(String firstName, String lastName, LocalDate birthDate, String postCode, String place, String address) {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.postCode = postCode;

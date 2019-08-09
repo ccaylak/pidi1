@@ -9,7 +9,7 @@ import {User} from '../user';
 export class ApiService {
   private BASE_URL = 'http://localhost:8080/user';
   private ALL_USERS_URL = `${this.BASE_URL}\\all`;
-  private CREATE_USER_URL = `${this.BASE_URL}\\create`;
+  private CREATE_USER_URL = `${this.BASE_URL}\\registration`;
 
   constructor(private http: HttpClient) {
   }

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>de.caylak</groupId>
-	<artifactId>pidl1</artifactId>
+	<artifactId>pidi1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>pidl1</name>
+	<name>pidi1</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

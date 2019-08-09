@@ -15,7 +15,7 @@ public class Mapper {
                 userViewModel.getPostCode(),
                 userViewModel.getPlace(),
                 userViewModel.getAddress()
-                );
+        );
 
         return viewModel;
     }
