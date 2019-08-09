@@ -1,0 +1,114 @@
+<div class="card mx-auto border-dark" style="width: 18rem; width: 30%; margin-top: 5%;">
+  <div class="card-header">
+    Registrieren
+  </div>
+  <ul class="list-group list-group-flush" style="padding-top: 2%;">
+    <form (ngSubmit)="form.valid && sendForm()" #form="ngForm">
+      <div class="form-row mx-auto">
+        <div class="form-group col-md-6">
+          <label for="firstName">Vorname</label>
+          <input type="text"
+                 class="form-control"
+                 id="firstName"
+                 [(ngModel)]="model.firstName"
+                 name="firstName"
+                 #firstName="ngModel"
+                 [ngClass]="{ 'is-invalid': form.submitted && firstName.invalid }"
+                 required>
+          <!-- Input Validation Groud-->
+          <div *ngIf="form.submitted && firstName.invalid" class="invalid-feedback">
+            <!-- Individual Error  -->
+            <div *ngIf="firstName.errors.required">
+              Bitte einen Vornamen angeben
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName">Name</label>
+          <input type="text"
+                 class="form-control"
+                 id="lastName"
+                 [(ngModel)]="model.lastName"
+                 name="lastName"
+                 #lastName="ngModel"
+                 [ngClass]="{'is-invalid': form.submitted && lastName.invalid }"
+                 required>
+          <div class="invalid-feedback" *ngIf="form.submitted && lastName.invalid">
+            <div *ngIf="lastName.errors.required">
+              Bitte einen Namen angeben
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row mx-auto">
+        <div class="form-group col-md-5">
+          <label for="birthDate">Geburtsdatum</label>
+          <input type="date"
+                 class="form-control"
+                 id="birthDate"
+                 [(ngModel)]="model.birthDate"
+                 name="birthDate"
+                 #birthDate="ngModel"
+                 [ngClass]="{'is-invalid': form.submitted && birthDate.invalid}"
+                 required>
+          <div class="invalid-feedback" *ngIf="form.submitted && birthDate.invalid">
+            Bitte ein Geburtsdatum angeben
+          </div>
+        </div>
+        <div class="form-group is-valid col-md-3">
+          <label for="postCode">PLZ</label>
+          <input type="text"
+                 class="form-control"
+                 id="postCode"
+                 [(ngModel)]="model.postCode"
+                 name="postCode"
+                 #postCode="ngModel"
+                 [ngClass]="{ 'is-invalid': form.submitted && postCode.invalid }"
+                 pattern="^\d{5}$"
+                 required>
+          <div class="invalid-feedback" *ngIf="form.submitted && postCode.invalid">
+            Bitte eine PLZ angeben
+            <div *ngIf="postCode.errors.pattern" class="text-warning">
+              Bitte eine richtige PLZ angeben
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="place">Ort</label>
+          <input type="text"
+                 class="form-control"
+                 id="place"
+                 [(ngModel)]="model.place"
+                 name="place"
+                 #place="ngModel"
+                 [ngClass]="{'is-invalid': form.submitted && place.invalid}"
+                 required>
+          <div class="invalid-feedback" *ngIf="form.submitted && place.invalid">
+            Bitte einen Ort angeben
+          </div>
+        </div>
+      </div>
+      <div class="form-row mx-auto">
+        <div class="form-group col-md-12">
+          <label for="address">Straße und Hausnummer</label>
+          <input type="text"
+                 class="form-control"
+                 id="address"
+                 [(ngModel)]="model.address"
+                 name="address"
+                 #address="ngModel"
+                 [ngClass]="{'is-invalid': form.submitted && address.invalid}"
+                 pattern="^([\S\s]+?)\s+([\d-\s]*?)\s*([\w])?$"
+                 required>
+          <div class="invalid-feedback" *ngIf="form.submitted && address.invalid">
+            Bitte eine Adresse angeben
+            <div class="text-warning" *ngIf="address.errors.pattern"></div>
+              Bitte eine gültige Adresse
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary col-md-12">Registrieren</button>
+    </form>
+  </ul>
+</div>
+
