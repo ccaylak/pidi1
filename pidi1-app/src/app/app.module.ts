@@ -12,6 +12,11 @@ import {NotFoundComponent} from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   {
+    path: '',
+    redirectTo: 'user/all',
+    pathMatch: 'full'
+  },
+  {
     path: 'user/all',
     component: UserListComponent,
     pathMatch: 'full'
