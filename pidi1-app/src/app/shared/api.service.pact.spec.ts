@@ -7,6 +7,8 @@ import {PactWeb, Matchers} from '@pact-foundation/pact-web';
 describe('ApiService', () => {
   let provider;
 
+  const name = 'Cem';
+
   beforeAll(done => {
     provider = new PactWeb({
       consumer: 'ui',
@@ -23,6 +25,17 @@ describe('ApiService', () => {
       done();
     }, (err) => {
       done.fail(err);
+    });
+  });
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        ApiService
+      ],
     });
   });
 
@@ -51,10 +64,12 @@ describe('ApiService', () => {
         },
         willRespondWith: {
           status: 200,
-          body: Matchers.somethingLike({}),
           headers: {
             'Content-Type': 'application/json'
-          }
+          },
+          body: [{
+            firstName: Matchers.somethingLike('Cem'),
+          }]
         }
       }).then(done, error => done.fail(error));
     });
